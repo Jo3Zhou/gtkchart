@@ -3,23 +3,22 @@
 
 #include "demo_box.h"
 
-static void activate_cb(GApplication *app, gpointer user_data)
-{
+static void activate_cb(GApplication* app, gpointer user_data) {
     (void) user_data;
-    GtkWidget *window;
+    GtkWidget* window;
 
     window = gtk_application_window_new(GTK_APPLICATION(app));
     gtk_window_set_title(GTK_WINDOW(window), "GtkChart Demo");
+
     gtk_window_set_default_size(GTK_WINDOW(window), 1000, 800);
 
-    GtkWidget *box = demo_box_new();
+    GtkWidget* box = demo_box_new();
     gtk_window_set_child(GTK_WINDOW(window), box);
 
     gtk_window_present(GTK_WINDOW(window));
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char** argv) {
     g_autoptr(AdwApplication) app = NULL;
 
     app = adw_application_new("com.github.lundmar.gtkchart", G_APPLICATION_DEFAULT_FLAGS);

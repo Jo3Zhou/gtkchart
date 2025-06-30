@@ -33,25 +33,24 @@
 #include <gtk/gtk.h>
 
 #if defined _WIN32 || defined __CYGWIN__
-  #define EXPORT __declspec(dllexport)
+#define EXPORT __declspec(dllexport)
 #else
-  #if defined __GNUC__
-    #define EXPORT __attribute__ ((visibility("default")))
-  #else
-    #pragma message ("Compiler does not support symbol visibility.")
-    #define EXPORT
-  #endif
+#if defined __GNUC__
+#define EXPORT __attribute__((visibility("default")))
+#else
+#pragma message("Compiler does not support symbol visibility.")
+#define EXPORT
+#endif
 #endif
 
 typedef struct chart_point_t ChartPoint;
 
 G_BEGIN_DECLS
 
-#define GTK_TYPE_CHART (gtk_chart_get_type ())
-G_DECLARE_FINAL_TYPE (GtkChart, gtk_chart, GTK, CHART, GtkWidget)
+#define GTK_TYPE_CHART (gtk_chart_get_type())
+G_DECLARE_FINAL_TYPE(GtkChart, gtk_chart, GTK, CHART, GtkWidget)
 
-typedef enum
-{
+typedef enum {
   GTK_CHART_TYPE_UNKNOWN,
   GTK_CHART_TYPE_LINE,
   GTK_CHART_TYPE_SCATTER,
@@ -60,7 +59,7 @@ typedef enum
   GTK_CHART_TYPE_NUMBER
 } GtkChartType;
 
-EXPORT GtkWidget * gtk_chart_new (void);
+EXPORT GtkWidget *gtk_chart_new(void);
 EXPORT void gtk_chart_set_type(GtkChart *chart, GtkChartType type);
 EXPORT void gtk_chart_set_title(GtkChart *chart, const char *title);
 EXPORT void gtk_chart_set_label(GtkChart *chart, const char *label);
@@ -81,12 +80,14 @@ EXPORT void gtk_chart_set_value_max(GtkChart *chart, double value);
 EXPORT double gtk_chart_get_value_min(GtkChart *chart);
 EXPORT double gtk_chart_get_value_max(GtkChart *chart);
 
-EXPORT bool gtk_chart_save_csv(GtkChart *chart, const char *filename, GError **error);
-EXPORT bool gtk_chart_save_png(GtkChart *chart, const char *filename, GError **error);
-EXPORT GSList * gtk_chart_get_points(GtkChart *chart);
+EXPORT bool gtk_chart_save_csv(GtkChart *chart, const char *filename,
+                               GError **error);
+EXPORT bool gtk_chart_save_png(GtkChart *chart, const char *filename,
+                               GError **error);
+EXPORT GSList *gtk_chart_get_points(GtkChart *chart);
 
 EXPORT void gtk_chart_set_user_data(GtkChart *chart, void *user_data);
-EXPORT void * gtk_chart_get_user_data(GtkChart *chart);
+EXPORT void *gtk_chart_get_user_data(GtkChart *chart);
 
 EXPORT bool gtk_chart_set_color(GtkChart *chart, char *name, char *color);
 EXPORT void gtk_chart_set_font(GtkChart *chart, const char *name);
