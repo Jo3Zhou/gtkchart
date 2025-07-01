@@ -24,7 +24,7 @@ BraceWrapping:
   BeforeElse: true
   IndentBraces: false
 
-PointerAlignment: Left
+PointerAlignment: Right
 SpaceAfterCStyleCast: true
 SpacesBeforeTrailingComments: 1
 

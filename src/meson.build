@@ -1,4 +1,4 @@
-libgtkchart_sources = ['gtkchart.c']
+libgtkchart_sources = ['gtkchartcanvas.c']
 
 libglib_dep = dependency('glib-2.0', version: '>= 2.70', required: true,
                           fallback : ['glib', 'libglib_dep'],
@@ -19,4 +19,4 @@ libgtkchart = shared_library('gtkchart',
                               install: true
 )
 
-install_headers('gtkchart.h')
+install_headers('gtkchartcanvas.h')

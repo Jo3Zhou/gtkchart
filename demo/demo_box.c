@@ -1,5 +1,5 @@
 #include "demo_box.h"
-#include "gtkchart.h"
+#include "gtkchartcanvas.h"
 
 #define VIEWPORT_WIDTH 25
 
@@ -93,7 +93,7 @@ static void demo_box_init(DemoBox* self) {
 
     // --- Line Chart ---
     GtkChart* line_chart = GTK_CHART(gtk_chart_new());
-    gtk_chart_set_type(line_chart, GTK_CHART_TYPE_LINE);
+    gtk_chart_set_type(line_chart, GTK_CHART_CANVAS_TYPE_LINE);
     gtk_chart_set_title(line_chart, "Line Chart");
     gtk_chart_set_x_min(line_chart, 0.0);
     gtk_chart_set_x_max(line_chart, VIEWPORT_WIDTH);
